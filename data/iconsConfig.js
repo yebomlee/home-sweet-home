@@ -1,0 +1,48 @@
+const iconsConfig = [
+  { name: 'fridge', src: './img/fridge.png', x: 39, y: 1, frames: 7 },
+  {
+    name: 'friendLeft',
+    src: './img/friendLeft.png',
+    x: 7.8,
+    y: 24.5,
+    frames: 6,
+  },
+  {
+    name: 'friendRight',
+    src: './img/friendRight.png',
+    x: 5.2,
+    y: 24.5,
+    frames: 6,
+  },
+  { name: 'entrance', src: './img/iconLeft.png', x: 16, y: 25, frames: 6 },
+  { name: 'guestRoom', src: './img/iconRight.png', x: 6.5, y: 25, frames: 6 },
+
+  { name: 'bed', src: './img/iconLeft.png', x: 8, y: 1.5, frames: 6 },
+  { name: 'jammanbo', src: './img/jammanbo.png', x: 9, y: 1.8, frames: 6 },
+  { name: 'TV', src: './img/iconRight.png', x: 17, y: 6, frames: 6 },
+  { name: 'gift', src: './img/iconLeft.png', x: 23, y: 3, frames: 6 },
+  { name: 'leftAmplifier', src: './img/amplifier.png', x: 25, y: 9, frames: 3 },
+  {
+    name: 'rightAmplifier',
+    src: './img/amplifier.png',
+    x: 30,
+    y: 9,
+    frames: 3,
+  },
+  { name: 'dumbbell', src: './img/iconRight.png', x: 24, y: 14.3, frames: 6 },
+  { name: 'baseball', src: './img/iconLeft.png', x: 35.5, y: 8.3, frames: 6 },
+  { name: 'washer', src: './img/iconRight.png', x: 35.5, y: 4.5, frames: 6 },
+
+  { name: 'cooking', src: './img/iconLeft.png', x: 46, y: 2.8, frames: 6 },
+  { name: 'cake', src: './img/iconRight.png', x: 44, y: 13, frames: 6 },
+  { name: 'flowerBed', src: './img/iconRight.png', x: 44, y: 20.5, frames: 6 },
+  {
+    name: 'swimmingPool',
+    src: './img/iconLeft.png',
+    x: 42,
+    y: 24.8,
+    frames: 6,
+  },
+  { name: 'computer', src: './img/iconLeft.png', x: 27.2, y: 20.3, frames: 6 },
+  { name: 'bookcase', src: './img/iconLeft.png', x: 25, y: 27, frames: 6 },
+];
