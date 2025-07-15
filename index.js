@@ -7,7 +7,10 @@ context.fillRect(0, 0, canvas.width, canvas.height);
 
 const MAP_ROW_LENGTH = 50;
 const TILE_SIZE = 64;
-const MOVE_SPEED = 3;
+const MOVE_SPEED = 7;
+// 1) 초당 이동할 픽셀 수 정의 (이전 MOVE_SPEED=3px/frame 정도)
+const SPEED_PPS = MOVE_SPEED * 60; // 예: 3px*60fps = 180px/s
+
 const OFFSET_X = -600;
 const OFFSET_Y = -1340;
 const COLLISION_SYMBOL = 31075;
@@ -189,17 +192,31 @@ function attemptMove({ dx, dy, img }) {
   }
 }
 
-function animate() {
+let lastTime = 0;
+
+function animate(timeStamp) {
+  // 2) 첫 호출 땐 lastTime=0이므로 deltaTime=timeStamp
+  const deltaTime = timeStamp - lastTime;
+  lastTime = timeStamp;
   window.requestAnimationFrame(animate);
+
   render.forEach((s) => s.draw());
+
   const direction = movementVectors[lastKey];
   if (direction && keys[lastKey].pressed) {
-    attemptMove(direction);
+    // 3) 실제 프레임마다 이동할 픽셀 계산
+    const distance = SPEED_PPS * (deltaTime / 1000);
+    attemptMove({
+      dx: direction.dx > 0 ? distance : direction.dx < 0 ? -distance : 0,
+      dy: direction.dy > 0 ? distance : direction.dy < 0 ? -distance : 0,
+      img: direction.img,
+    });
   } else {
     player.moving = false;
   }
 }
-animate();
+
+requestAnimationFrame(animate);
 
 window.addEventListener('keydown', (e) => {
   if (e.key in keys) {
