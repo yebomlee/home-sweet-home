@@ -8,9 +8,7 @@ context.fillRect(0, 0, canvas.width, canvas.height);
 const MAP_ROW_LENGTH = 50;
 const TILE_SIZE = 64;
 const MOVE_SPEED = 7;
-// 1) 초당 이동할 픽셀 수 정의 (이전 MOVE_SPEED=3px/frame 정도)
-const SPEED_PPS = MOVE_SPEED * 60; // 예: 3px*60fps = 180px/s
-
+const SPEED_PPS = MOVE_SPEED * 60;
 const OFFSET_X = -600;
 const OFFSET_Y = -1340;
 const COLLISION_SYMBOL = 31075;
@@ -161,14 +159,14 @@ const render = [
 const movables = [background, ...boundaries, ...iconsArr, foreground];
 
 const movementVectors = {
-  w: { dx: 0, dy: 3, img: player.sprites.up },
-  ArrowUp: { dx: 0, dy: 3, img: player.sprites.up },
-  a: { dx: 3, dy: 0, img: player.sprites.left },
-  ArrowLeft: { dx: 3, dy: 0, img: player.sprites.left },
-  s: { dx: 0, dy: -3, img: player.sprites.down },
-  ArrowDown: { dx: 0, dy: -3, img: player.sprites.down },
-  d: { dx: -3, dy: 0, img: player.sprites.right },
-  ArrowRight: { dx: -3, dy: 0, img: player.sprites.right },
+  w: { dx: 0, dy: 1, img: player.sprites.up },
+  ArrowUp: { dx: 0, dy: 1, img: player.sprites.up },
+  a: { dx: 1, dy: 0, img: player.sprites.left },
+  ArrowLeft: { dx: 1, dy: 0, img: player.sprites.left },
+  s: { dx: 0, dy: -1, img: player.sprites.down },
+  ArrowDown: { dx: 0, dy: -1, img: player.sprites.down },
+  d: { dx: -1, dy: 0, img: player.sprites.right },
+  ArrowRight: { dx: -1, dy: 0, img: player.sprites.right },
 };
 
 function attemptMove({ dx, dy, img }) {
@@ -193,18 +191,13 @@ function attemptMove({ dx, dy, img }) {
 }
 
 let lastTime = 0;
-
 function animate(timeStamp) {
-  // 2) 첫 호출 땐 lastTime=0이므로 deltaTime=timeStamp
   const deltaTime = timeStamp - lastTime;
   lastTime = timeStamp;
   window.requestAnimationFrame(animate);
-
   render.forEach((s) => s.draw());
-
   const direction = movementVectors[lastKey];
   if (direction && keys[lastKey].pressed) {
-    // 3) 실제 프레임마다 이동할 픽셀 계산
     const distance = SPEED_PPS * (deltaTime / 1000);
     attemptMove({
       dx: direction.dx > 0 ? distance : direction.dx < 0 ? -distance : 0,
@@ -215,7 +208,6 @@ function animate(timeStamp) {
     player.moving = false;
   }
 }
-
 requestAnimationFrame(animate);
 
 window.addEventListener('keydown', (e) => {
