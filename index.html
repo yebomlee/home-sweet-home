@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>봉금자리</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.600/neodgm_code/style.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'NeoDunggeunmo Code', monospace;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .main-content {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      h1 {
+        margin-bottom: 30px;
+        font-size: 70px;
+        color: yellowgreen;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      canvas {
+        display: block;
+        border: 4px solid black;
+      }
+
+      .box-container {
+        width: 1024px;
+        height: 150px;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: white;
+        box-sizing: border-box;
+        border: none;
+      }
+
+      .box-container.active {
+        background: yellowgreen;
+        border: 4px solid black;
+      }
+
+      .guide-box,
+      .dialogue-box {
+        flex: 1;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .guide-box {
+        color: #888;
+        background: white;
+        font-size: 16px;
+      }
+
+      .dialogue-box {
+        color: #333;
+        background: transparent;
+        font-size: 32px;
+      }
+
+      footer {
+        margin-top: auto;
+        font-family: system-ui, Arial, sans-serif;
+        padding: 20px;
+        text-align: center;
+        background-color: #f5f5f5;
+        border-top: 2px solid #333;
+        font-size: 12px;
+      }
+
+      footer a,
+      footer a:visited {
+        font-family: system-ui, Arial, sans-serif;
+        color: #000;
+        line-height: 1.5;
+      }
+
+      /* footer 안의 튜토리얼 링크는 굵게, 밑줄 제거 */
+      footer .tutorial-link {
+        font-weight: bold;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main-content">
+      <header>
+        <h1>Hello, World!</h1>
+      </header>
+      <div class="game-container">
+        <canvas></canvas>
+        <div class="box-container">
+          <div class="guide-box">
+            화살표(WASD)를 눌러 방향을 이동하고, 마우스로 느낌표 아이콘을 클릭해
+            보세요.
+          </div>
+          <div class="dialogue-box"></div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      © 2025 yebomlee. Contact:
+      <a
+        href="https://github.com/yebomlee"
+        class="tutorial-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        >github.com/yebomleem</a
+      ><br />
+
+      Made possible thanks to
+      <a
+        href="https://www.youtube.com/@ChrisCourses"
+        class="tutorial-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Chris Courses</a
+      >. Sprites by
+      <a
+        href="https://limezu.itch.io/"
+        class="tutorial-link"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        LimeZu</a
+      >.
+    </footer>
+
+    <script src="data/collisions.js"></script>
+    <script src="data/iconsCollisions.js"></script>
+    <script src="classes.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
