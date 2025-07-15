@@ -1,16 +1,18 @@
 const canvas = document.querySelector('canvas');
 const context = canvas.getContext('2d');
+
 canvas.width = 1024;
 canvas.height = 576;
+
 context.fillStyle = 'white';
 context.fillRect(0, 0, canvas.width, canvas.height);
 
-const MAP_ROW_LENGTH = 50;
-const TILE_SIZE = 64;
+const MAP_ROW_LENGTH = 70;
+const TILE_SIZE = 64; // 16*4
 const MOVE_SPEED = 7;
 const SPEED_PPS = MOVE_SPEED * 60;
-const OFFSET_X = -600;
-const OFFSET_Y = -1340;
+const OFFSET_X = -1250;
+const OFFSET_Y = -1800;
 const COLLISION_SYMBOL = 31075;
 const ICON_COLLISION_SYMBOL = 31080;
 
@@ -71,8 +73,8 @@ const playerRightImage = loadImage('./img/playerRight.png');
 
 const player = new Sprite({
   position: {
-    x: canvas.width / 2 - 384 / 6 / 3,
-    y: canvas.height * 0.6,
+    x: canvas.width / 2 - 384 / 6 / 2, // 이미지 가로
+    y: canvas.height / 2 - 96 / 2, // 이미지 세로
   },
   image: playerDownImage,
   frames: {
