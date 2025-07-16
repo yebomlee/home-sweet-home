@@ -213,13 +213,17 @@ function animate(timeStamp) {
 requestAnimationFrame(animate);
 
 window.addEventListener('keydown', (e) => {
-  if (e.key in keys) {
-    keys[e.key].pressed = true;
-    lastKey = e.key;
-  }
+  // 대화창이 열려있을 때 Enter 키 처리
   if (e.key === 'Enter' && dialogueState.messages) {
     e.preventDefault();
     continueDialogue();
+    return;
+  }
+
+  // 이동 키 처리
+  if (e.key in keys) {
+    keys[e.key].pressed = true;
+    lastKey = e.key;
   }
 });
 
@@ -307,13 +311,6 @@ canvas.addEventListener('click', (e) => {
   if (iconKey && dialogues[iconKey] && iconKey !== dialogueState.iconKey) {
     openDialogue(iconKey);
   } else {
-    continueDialogue();
-  }
-});
-
-window.addEventListener('keydown', (e) => {
-  if (dialogueState.messages && e.key === 'Enter') {
-    e.preventDefault();
     continueDialogue();
   }
 });
