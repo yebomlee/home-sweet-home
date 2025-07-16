@@ -10,7 +10,7 @@
 
 ## 🔗 라이브 데모
 
-[https://bong-geum-jari.netlify.app/](https://bong-geum-jari.netlify.app/) 에서 바로 플레이해 보세요!
+<a href="https://bong-geum-jari.netlify.app/" target="_blank">https://bong-geum-jari.netlify.app/</a> 에서 바로 플레이해 보세요!
 
 ## 🎮 주요 기능
 
