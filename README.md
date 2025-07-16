@@ -10,7 +10,9 @@
 
 ## 🔗 라이브 데모
 
-<a href="https://bong-geum-jari.netlify.app/" target="_blank">https://bong-geum-jari.netlify.app/</a> 에서 바로 플레이해 보세요!
+[https://bong-geum-jari.netlify.app/](https://bong-geum-jari.netlify.app/) 에서 바로 플레이해 보세요!
+
+> * 새로운 탭에서 링크 열기: Cmd(맥)/Ctrl(윈도우) 클릭
 
 ## 🎮 주요 기능
 
