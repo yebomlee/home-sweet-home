@@ -213,14 +213,12 @@ function animate(timeStamp) {
 requestAnimationFrame(animate);
 
 window.addEventListener('keydown', (e) => {
-  // 대화창이 열려있을 때 Enter 키 처리
   if (e.key === 'Enter' && dialogueState.messages) {
     e.preventDefault();
     continueDialogue();
     return;
   }
 
-  // 이동 키 처리
   if (e.key in keys) {
     keys[e.key].pressed = true;
     lastKey = e.key;
